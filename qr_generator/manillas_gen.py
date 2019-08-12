@@ -40,6 +40,8 @@ def html_generator(manillas: list, template: str):
     return result
 
 
-data = random_data(7000, 100000, 1000000)
+data = random_data(100, 100000, 1000000)
 qrs = qr_generator(data)
-manillas = html_generator(qrs, 'template.html')
+manillas = html_generator(qrs, './templates/template.html')
+with open('templates/output.html', 'w') as file:
+    file.write(manillas)

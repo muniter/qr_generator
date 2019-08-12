@@ -1,0 +1,63 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.5cm;
+    margin-top: 0cm;
+    margin-bottom: 0cm;
+    margin-right: 10cm;
+    margin-left: 3cm;
+}
+
+table.qrs {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0cm 0cm;
+    margin-top: 0cm;
+    margin-bottom: 0cm;
+    margin-right: 0cm;
+    margin-left: 0cm;
+
+}
+
+td,th {
+    background-color: #0088dd;
+    height: 2.16cm;
+  margin: 0cm;
+}
+
+td.data {
+  text-align: center;
+  margin: 0cm;
+}
+
+p.data{
+  transform: rotate(-90deg);
+  margin-top: 1cm;
+  margin-bottom: 0cm;
+  margin-right: 0cm;
+  margin-left: 0cm;
+  padding: 0cm 0cm;
+}
+
+td.qr {
+  text-align: center;
+  padding: 0cm 0cm;
+  margin: 0cm;
+}
+
+img.qr{
+    width: 2cm;
+    height: 2cm;
+  margin: 0cm;
+}
+
+td.title {
+  text-align: center;
+  margin: 0cm;
+}
+
+
+@page {
+    size: 30cm 21.6cm;
+    margin: 0cm;
+}

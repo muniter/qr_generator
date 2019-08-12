@@ -1,0 +1,51 @@
+td,th {
+    background-color: #0088dd;
+    height: 4.16cm;
+}
+
+table.qrs {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0cm 0cm;
+    margin-top: 0cm;
+    margin-bottom: 0cm;
+    margin-right: 0cm;
+    margin-left: 0cm;
+
+}
+td.data, p.data {
+  text-align: center;
+  font-size: 0.5cm;
+  width: 1cm;
+  transform: rotate(270deg);
+}
+td.qr {
+  text-align: center;
+  width: 2cm;
+  padding: 0cm 0cm;
+}
+td.title {
+  text-align: center;
+  padding: 0cm 0cm;
+  width: 6cm;
+}
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.7cm;
+    margin-top: 0cm;
+    margin-bottom: 0cm;
+    margin-right: 10cm;
+    margin-left: 3cm;
+}
+
+
+img.qr{
+    width: 2cm;
+    height: 2cm;
+}
+
+@page {
+    size: 30cm 21.6cm;
+    margin: 0cm;
+}
