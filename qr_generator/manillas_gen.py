@@ -28,7 +28,7 @@ def qr_generator(data: list, prefix='', suffix=''):
     return(qrs)
 
 
-def html_generator(manillas: list, template: str):
+def html_generator(manillas: list, template: str, eb: str):
     '''Generate the html of the qr and values list to further
     convert to pdf'''
     file_loader = FileSystemLoader('./')
@@ -36,12 +36,19 @@ def html_generator(manillas: list, template: str):
     template = env.get_template(template)
     for manilla in manillas:
         manilla["qr"].save('output/qrs/' + str(manilla["data"]) + '.png')
-    result = template.render(manillas=manillas)
+    result = template.render(manillas=manillas, eb=eb)
     return result
 
 
-data = random_data(100, 100000, 1000000)
+# Ask for input
+num_manillas = input("Número de Manillas: ")
+template = input("Template: ")
+eb = input("Estudio Bíblico: ")
+output = input("Output name: ")
+
+data = random_data(int(num_manillas), 100000, 10000000)
 qrs = qr_generator(data)
-manillas = html_generator(qrs, './templates/template.html')
-with open('templates/output.html', 'w') as file:
+manillas = html_generator(qrs, template=template, eb=eb)
+
+with open(output, 'w') as file:
     file.write(manillas)
