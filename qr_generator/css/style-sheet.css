@@ -22,7 +22,7 @@ th, td {
 
 tr {
     padding: 0cm 0cm 0cm 0cm;
-    height: 2.16cm;
+    height: 2.08cm;
 }
 
 .data div {
@@ -35,7 +35,7 @@ tr {
 
 td img.qr {
     display: block;
-    height: 1.9cm;  
+    height: 1.85cm;  
     width: auto;
 }
 
@@ -53,6 +53,6 @@ td.title {
 }
 
 @page {
-    size: 28.25cm 21.6cm;
-    margin: 0cm;
+    size: 28.25cm 21.2cm;
+    margin: 0.3cm 0cm 0cm 0.2cm;
 }
