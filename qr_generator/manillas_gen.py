@@ -6,7 +6,11 @@ import random
 
 def random_data(number: int, number_start: int, number_end: int):
     '''This function extracts unique numbers from a range of numbers'''
-    data = random.sample(range(number_start, number_end), number)
+    sample = random.sample(range(number_start, number_end), number)
+    data = []
+    for item in sample:
+        data.append(format(item, '>07'))
+
     return (data)
 
 
@@ -15,7 +19,7 @@ def qr_generator(data: list, prefix='', suffix=''):
     with value and barcode object'''
     qrs = []
     for item in data:
-        item_text = prefix + str(item) + suffix
+        item_text = prefix + item + suffix
         encoded = encode(item_text.encode('utf-8'))
         qr = Image.frombytes(
             'RGB',
@@ -42,13 +46,17 @@ def html_generator(manillas: list, template: str, eb: str):
 
 # Ask for input
 num_manillas = input("Número de Manillas: ")
-template = input("Template: ")
 eb = input("Estudio Bíblico: ")
-output = input("Output name: ")
 
-data = random_data(int(num_manillas), 100000, 10000000)
+output = eb.lower() + '.html'
+template = 'templates/template.html'
+data = random_data(int(num_manillas), 1, 10000000)
 qrs = qr_generator(data)
 manillas = html_generator(qrs, template=template, eb=eb)
 
 with open(output, 'w') as file:
     file.write(manillas)
+
+with open(eb.lower() + '.txt', 'w') as file:
+    for item in data:
+        file.write(f"{item}\n")
