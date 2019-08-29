@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="css/style-sheet.css">
+        <title>Plantilla Manillas</title>
+    </head>
+    <body>
+            {% for iglesia, data in data_iglesias %}
+        <table class="resumen">
+            <caption> Resumen <b>Iglesia {{iglesia}}</b> {{evento}}</caption>
+            {% for categoria in data.items() %}
+            <tr>
+                <td class="categoria">{{' / '.join(categoria[0])}}</td>
+                <td class="numero">{{categoria[1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br/>
+        <p>Esther Schlegel<p>
+        <p>Andy Domínguez<p>
+        <p>Javier López<p>
+        <footer></footer>
+            {% endfor %}
+    </body>
+</html>
