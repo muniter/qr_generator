@@ -1,4 +1,5 @@
 from PIL import Image
+from weasyprint import HTML
 from pylibdmtx.pylibdmtx import encode
 from jinja2 import Environment, FileSystemLoader
 import random
@@ -48,15 +49,17 @@ def html_generator(manillas: list, template: str, eb: str):
 num_manillas = input("Número de Manillas: ")
 eb = input("Estudio Bíblico: ")
 
-output = eb.lower() + '.html'
+output = eb.lower()
 template = 'templates/template.html'
-data = random_data(int(num_manillas), 1, 10000000)
+data = random_data(int(num_manillas), 5000000, 6000000)
 qrs = qr_generator(data)
 manillas = html_generator(qrs, template=template, eb=eb)
 
-with open(output, 'w') as file:
+with open(output + '.html', 'w') as file:
     file.write(manillas)
 
 with open(eb.lower() + '.txt', 'w') as file:
     for item in data:
         file.write(f"{item}\n")
+
+HTML(filename=output + '.html').write_pdf(output + '.pdf')

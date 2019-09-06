@@ -66,7 +66,8 @@ def html_generator(data: list, template: str, evento: str):
     return result
 
 
-data = get_pd(odoo, 2)
+data = get_pd(odoo, 1)
+df = data[0]
 res = html_generator(data[2],
                      'templates/base.html',
                      'Estudio Bíblico Montería')
